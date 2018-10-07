@@ -7,7 +7,7 @@ class Song < ActiveRecord::Base
   end
 
   validates :artist_name, presence: true
-
+  validates :release_year, numericality: { less_than_or_equal_to: Date.today.year }
   def is_the_song_released?
     released
   end
